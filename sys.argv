@@ -1,0 +1,9 @@
+import sys
+import capitals as c
+
+if len(sys.argv) >= 1:
+    input = sys.argv[1]
+    print(c.check_capital(input))
+else:
+    print("pls insert any input")
+    exit()
