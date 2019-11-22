@@ -11,7 +11,7 @@ import sys
 
 if len(sys.argv) > 1:
     input = sys.argv[1]
-    state,capital = capitals.check_capital(input)
+    state,capital = capitals.check_capital(str(input))
     print("The capital of {} is {}".format(state, capital))
 
 else:
