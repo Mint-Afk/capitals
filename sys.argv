@@ -1,0 +1,33 @@
+#!/usr/bin/python3.1
+
+''' import modules used here -- sys is a very standard one, 
+    useful to accept inputs'''
+
+import sys
+
+
+if len(sys.argv) > 1:
+    to_print = sys.argv[1]
+else:
+    print("Give me an argument to print")
+    exit()
+
+print("The name of this program is {}".format(sys.argv[0]))
+print("You entered {}".format(to_print))
+
+from package import capitals
+ import sys
+
+ if len(sys.argv) > 1:
+     input = sys.argv[1]
+     n,price = capitals.check_capital(input)
+     print("Company {} has a stock value of {}$".format(price, n))
+
+ else:
+     print("Tell what you wanna know bout!")
+     exit()
+
+ n,price=stock.get_price("AAPL")
+ print("Company {} has a stock value of {}$".format(price, n))
+ n,price=stock.get_price("GOOGL")
+ print("Company {} has a stock value of {}$".format(price, n))
