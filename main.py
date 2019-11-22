@@ -1,9 +1,12 @@
 #! /usr/bin/env python3
 
-from capitals import check_capital, check_state
+''' import capitals module from the python package, there are two main function check_capital and check_state'''
 
-check_capital("Germany")
-check_capital("Honduras")
-check_state("Rome")
-check_state("Tokyo")
+import capitals as c
+
+'''perform test on capitals functions '''
+c.check_capital("Germany")
+c.check_capital("Honduras")
+c.check_state("Rome")
+c.check_state("Tokyo")
 
