@@ -63,7 +63,8 @@ list_of_capitals = {'Aland Islands':'Mariehamn',
 
 def check_capital(state_name):
     if state_name in list_of_capitals:
-        print("The capital of {} is {}".format(state_name, list_of_capitals[state_name]))
+        return state_name,list_of_capitals[state_name]
+       # print("The capital of {} is {}".format(state_name, list_of_capitals[state_name]))
     else:
         print("Sorry, {} does not seem to be an European state".format(state_name))
 
