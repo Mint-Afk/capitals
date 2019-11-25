@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-''' import capitals module from the python package, there are two main function check_capital and check_state'''
+''' import capitals module from the python package, recalling the function check_capital'''
 
 import package.capitals as c
 
