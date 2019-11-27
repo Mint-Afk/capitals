@@ -1,12 +1,14 @@
 #! /usr/bin/env python3
 
-''' import capitals module from the python package, recalling the function check_capital'''
+''' Import capitals module from the python package, recalling the function check_capital '''
 
-import package.capitals as c
+import city_check.capitals as cpt
 
-'''perform test on capitals functions '''
-c.check_capital("Germany")
-c.check_capital("Honduras")
-c.check_capital("Rome")
-c.check_capital("Tokyo")
+''' Perform test on capitals functions '''
+
+
+cpt.check_capital("Germany")
+cpt.check_capital("Honduras")
+cpt.check_capital("Rome")
+cpt.check_capital("Tokyo")
 
