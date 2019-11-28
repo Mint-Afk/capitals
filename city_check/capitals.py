@@ -1,4 +1,5 @@
-''' This is a dictionary with states as keys and capitals as values. This is used by check_capital function  '''
+
+''' This is a dictionary with states as keys and capitals as values. This is used by check_capital function. '''
 
 
 list_of_capitals = {'Aland Islands': 'Mariehamn',
@@ -60,12 +61,13 @@ list_of_capitals = {'Aland Islands': 'Mariehamn',
                     'United Kingdom': 'London',
                     'Vatican City': 'Vatican City'}
 
-''' 1st part: check if the input is a valid state in the capitals list, and gives in return the capital associated '''
-''' 2st function: check if the input is a valid capital in the capitals list, and gives in return the state associate '''
+''' The first part of the function checks if the input inserted is contained in the capitals list as a valid state and returns a sentence with the capital associated.
+    The second part checkes if the inputer inserted is contained in the capital list as a valid capital and returns a sentence with the state associated. '''
 
 
-def check_capital(input):
-    if input in list_of_capitals:
+def check_capital(input):    
+
+    if input in list_of_capitals:    
         print("The capital of {} is {}".format(
             input, list_of_capitals[input]))
     else:
@@ -75,4 +77,4 @@ def check_capital(input):
                      input, state))
                  return
         print("Sorry, {} is not part of Europe".format(input))
->>>>>>> master:capitals.py
+
