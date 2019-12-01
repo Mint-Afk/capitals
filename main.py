@@ -1,15 +1,15 @@
 #! /usr/bin/env python3
 
 """ Import capitals module from the python package,
-	 recalling the function check_capital """
+    recalling the function check_capital. """
 
 import city_check.capitals as cpt
 import sys
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:  # if sys has been given an argument through the shell by user, its gonna call back to check capital function from the module and gave back the results
-        if sys.argv[1] == 'check':  # perform test on capitals functions
+    if len(sys.argv) > 1:  # If sys has been given an argument through the shell by user, its gonna call back to check capital function from the module and gave back the results
+        if sys.argv[1] == 'check':  # Perform test on capitals functions
             cpt.check_capital("Germany")
             cpt.check_capital("Honduras")
             cpt.check_capital("Rome")
