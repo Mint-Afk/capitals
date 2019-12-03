@@ -1,6 +1,7 @@
-""" This is a Python dictionary with states as keys and their related capitals as values. 
-    This dictonary is used by check_capital function. """
-
+"""
+This is a Python dictionary with states as keys and their related capitals as values. 
+This dictonary is used by check_capital function. 
+"""
 
 list_of_capitals = {'Aland Islands': 'Mariehamn',
                     'Albania': 'Tirana',
@@ -61,20 +62,31 @@ list_of_capitals = {'Aland Islands': 'Mariehamn',
                     'United Kingdom': 'London',
                     'Vatican City': 'Vatican City'}
 
-""" The first part of the function checks if the input inserted is contained in the capitals list as a valid state and 
-    returns a sentence with the capital associated.
-    The second part checkes if the inputer inserted is contained in the capital list as a valid capital and returns 
-    a sentence with the state associated. """
+""" 
+The first part of the function checks if the input inserted is contained 
+in the capitals list as a valid state and returns a sentence with
+the capital associated.
+The second part checkes if the inputer inserted is contained in the 
+capital list as a valid capital and returns a sentence with the state associated. 
+"""
 
 
 def check_capital(input):    
 
-    if input in list_of_capitals:  # Checking whether the user input is a valid state in our dictionary   
+    """
+       Checking whether the user input is a valid state
+       in our dictionary.
+    """
+    if input in list_of_capitals:   
         print("The capital of {} is {}".format(
             input, list_of_capitals[input]))
     else:
-        for state, capital in list_of_capitals.items():  
-            if capital == input:  # Checking whether the user input is a valid capital in our dictionary
+        for state, capital in list_of_capitals.items():
+    """
+       Checking whether the user input is a valid
+       capital in our dictionary.
+    """  
+            if capital == input:
                  print("The European state whose capital is {} is {}".format(
                      input, state))
                  return
