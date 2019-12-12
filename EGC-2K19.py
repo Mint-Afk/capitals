@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-'''Executable file of the EGC - European Geography Champion 2020 Project
+'''Executable file of the EGC - European Geography Champion 2020 Project by MFGAsoftware©
 
 Example:
     Given user shell input:
