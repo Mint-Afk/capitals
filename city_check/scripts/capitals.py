@@ -28,7 +28,7 @@ import csv
 
 
 def load_csv(filename):
-    '''Read the capitalcsv file and return the state/capital dictionary.'''
+    '''Read the csv file and return the state/capital dictionary.'''
     list_of_capitals = {}
     with open(filename) as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
@@ -56,7 +56,7 @@ def check_capital(list, args):
 
     Raises:
         -bash: [Non-European State/Capital]: 
-        command not found : error raised if the user input is wrong/incorrect or an out of Europe place.
+        command not found : error raised if the user input is wrong/incorrect.
     '''
     if args.name in list:
         if args.verbosity >= 2:
@@ -90,3 +90,7 @@ def check_capital(list, args):
                                                                             state))
                 else:
                     print(state)
+    if args.name not in list and args.name not in list.values():
+        print('''
+              Sorry, but {} does not seem to be a valid European State or Capital
+              '''. format(args.name))
