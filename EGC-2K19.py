@@ -24,16 +24,20 @@ def parse_arguments():
     '''Command line option and argument parsing.
 
     The function use argparse to write user-friendly command-line interfaces. 
-    The argparse module also automatically generates help and usage messages 
+    The argparse module also automatically generates help(-h) and usage messages 
     and issues errors when users give the program invalid arguments. 
 
     Arguments:
         name (positional): the state or capital selected by the user
         verbosity (optional): level of verbosity chosen by the user [0 - 1 - 2]  
+        version (optional): return infos about the program development
 
     Returns:
         argparse.Namespace: user shell inputs arguments
-'''
+
+    Raises:
+        
+    '''
     parser = argparse.ArgumentParser(
         description="Knows all about capitals and states in Europe",
         prog="European Geography Champion 2020",
