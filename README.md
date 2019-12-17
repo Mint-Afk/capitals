@@ -109,22 +109,32 @@ A dictionary is provided with
 Some command line parameters are needed in order to run our executable file.
 The arguments required are:
 
-#### check_capital parameters
+### check_capital parameters
 
 **list** (dict): list containing the state/capital dictionary
+
 **args (argparse.Namespace): user sheell inputs arguments
+
 **place**: user state/capital input
+
 **verbosity**: user desired output verbosity
 
-#### parse_args() parameters 
+### Parse_args() parameters 
 
 **place** (positional): the state or capital selected by the user
+
 **-usr** (required): Insert username of the account
+
 **-psw** (required): Insert password of the account
+
 **-add**: add a user
+
 **-rm**: remove a user
+
 **-check**: check a user
+
 **--version** (optional): show infos about the actual version of the project
+
 **verbosity** (optional): level of verbosity chosen by the user [0 - 1 - 2]
 
 ## Testing
@@ -149,7 +159,6 @@ test_empty_data (test.test.TestMain) ... ok
 
 
     OK
-
 ```
 
 ## License
