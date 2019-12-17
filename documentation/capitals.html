@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module capitals</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>capitals</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/matteocarniel/EUROPEAN%20GEOGRAPHY%20CHAMPION%202K20%20-PRO-/city_check/scripts/capitals.py">/Users/matteocarniel/EUROPEAN GEOGRAPHY CHAMPION 2K20 -PRO-/city_check/scripts/capitals.py</a></font></td></tr></table>
+    <p><tt>Capital&nbsp;module&nbsp;is&nbsp;core&nbsp;to&nbsp;the&nbsp;whole&nbsp;functioning&nbsp;of&nbsp;the&nbsp;program.<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;contains&nbsp;two&nbsp;main&nbsp;functions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;load_csv:&nbsp;utilised&nbsp;to&nbsp;open&nbsp;and&nbsp;analyse&nbsp;csv&nbsp;file&nbsp;datas.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;check_capitals:&nbsp;returns&nbsp;the&nbsp;correspondence&nbsp;asked.&nbsp;<br>
+Check&nbsp;function&nbsp;called&nbsp;by&nbsp;the&nbsp;main_app&nbsp;taking&nbsp;argument&nbsp;place&nbsp;of&nbsp;the&nbsp;parser,&nbsp;<br>
+is&nbsp;gonna&nbsp;check&nbsp;the&nbsp;list&nbsp;previously&nbsp;loaded&nbsp;by&nbsp;the&nbsp;load_csv&nbsp;function&nbsp;to&nbsp;answer.&nbsp;<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Given&nbsp;user&nbsp;shell&nbsp;input:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$&nbsp;python&nbsp;parser.py&nbsp;place&nbsp;-v<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args.place&nbsp;is&nbsp;passed&nbsp;to&nbsp;the&nbsp;check_capital&nbsp;function&nbsp;checking&nbsp;if&nbsp;present&nbsp;in&nbsp;the&nbsp;csv&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;previously&nbsp;loaded&nbsp;by&nbsp;load_csv&nbsp;function.&nbsp;If&nbsp;place&nbsp;=&nbsp;ITALY&nbsp;is&nbsp;gonna&nbsp;answer&nbsp;back:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;capital&nbsp;of&nbsp;ITALY&nbsp;is&nbsp;ROME<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Level&nbsp;of&nbsp;verbosity&nbsp;is&nbsp;regulated&nbsp;through&nbsp;the&nbsp;optional&nbsp;argument&nbsp;of&nbsp;the&nbsp;parser.<br>
+&nbsp;<br>
+..&nbsp;_Git-hub&nbsp;Repository:<br>
+&nbsp;&nbsp;&nbsp;https://github.com/Mint-Afk/EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO-.git</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="csv.html">csv</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-check_capital"><strong>check_capital</strong></a>(list, args)</dt><dd><tt>Return&nbsp;the&nbsp;correspondent&nbsp;state/capital&nbsp;given&nbsp;the&nbsp;user&nbsp;shell&nbsp;input&nbsp;capital/state.<br>
+&nbsp;<br>
+-&nbsp;1st&nbsp;Part:&nbsp;check&nbsp;if&nbsp;the&nbsp;input&nbsp;is&nbsp;a&nbsp;valid&nbsp;state&nbsp;in&nbsp;the&nbsp;capitals&nbsp;list,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;gives&nbsp;in&nbsp;return&nbsp;the&nbsp;capital&nbsp;associated.&nbsp;<br>
+-&nbsp;2nd&nbsp;Part:&nbsp;check&nbsp;exactly&nbsp;the&nbsp;reverse&nbsp;of&nbsp;the&nbsp;first&nbsp;one.&nbsp;<br>
+The&nbsp;function&nbsp;is&nbsp;gonna&nbsp;calibrate&nbsp;the&nbsp;verbosity&nbsp;of&nbsp;the&nbsp;answers&nbsp;if&nbsp;specified&nbsp;by&nbsp;(-v)&nbsp;argument.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;(dict):&nbsp;list&nbsp;containing&nbsp;the&nbsp;state/capital&nbsp;dictionary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;(argparse.Namespace):&nbsp;user&nbsp;shell&nbsp;inputs&nbsp;arguments<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*place:&nbsp;user&nbsp;state/capital&nbsp;input<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*verbosity:&nbsp;user&nbsp;desired&nbsp;output&nbsp;verbosity<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;string:&nbsp;returning&nbsp;strings&nbsp;with&nbsp;variable&nbsp;verbosity<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-bash:&nbsp;[Non-European&nbsp;State/Capital]:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;command&nbsp;not&nbsp;found&nbsp;:&nbsp;error&nbsp;raised&nbsp;if&nbsp;the&nbsp;user&nbsp;input&nbsp;is&nbsp;wrong/incorrect.</tt></dd></dl>
+ <dl><dt><a name="-load_csv"><strong>load_csv</strong></a>(filename)</dt><dd><tt>Read&nbsp;the&nbsp;csv&nbsp;file&nbsp;and&nbsp;return&nbsp;the&nbsp;state/capital&nbsp;dictionary.</tt></dd></dl>
+</td></tr></table>
+</body></html>

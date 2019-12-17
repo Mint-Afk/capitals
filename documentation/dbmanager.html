@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module dbmanager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>dbmanager</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/matteocarniel/EUROPEAN%20GEOGRAPHY%20CHAMPION%202K20%20-PRO-/dbmanager.py">/Users/matteocarniel/EUROPEAN GEOGRAPHY CHAMPION 2K20 -PRO-/dbmanager.py</a></font></td></tr></table>
+    <p><tt>Database&nbsp;Manager&nbsp;module&nbsp;is&nbsp;used&nbsp;to&nbsp;manage&nbsp;user&nbsp;database&nbsp;operations.<br>
+&nbsp;<br>
+dbmanager.py&nbsp;will&nbsp;enable&nbsp;you&nbsp;to:<br>
+-&nbsp;add&nbsp;a&nbsp;new&nbsp;account&nbsp;with&nbsp;username&nbsp;and&nbsp;password<br>
+-&nbsp;check&nbsp;if&nbsp;credentials&nbsp;inserted&nbsp;are&nbsp;present&nbsp;on&nbsp;the&nbsp;database<br>
+-&nbsp;remove&nbsp;an&nbsp;account&nbsp;from&nbsp;the&nbsp;database<br>
+The&nbsp;module&nbsp;is&nbsp;gonna&nbsp;be&nbsp;called&nbsp;directly&nbsp;to&nbsp;manage&nbsp;database&nbsp;or&nbsp;through&nbsp;the&nbsp;main&nbsp;app&nbsp;<br>
+EGC-2K20&nbsp;to&nbsp;check&nbsp;if&nbsp;the&nbsp;user&nbsp;is&nbsp;registered&nbsp;and&nbsp;allow&nbsp;him&nbsp;access&nbsp;to&nbsp;functionalities.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Adding&nbsp;a&nbsp;new&nbsp;user:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$&nbsp;python&nbsp;dbmanager.py&nbsp;-usr&nbsp;test&nbsp;-psw&nbsp;test&nbsp;-add<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User&nbsp;[test]&nbsp;succesfully&nbsp;added&nbsp;to&nbsp;database!<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Removing&nbsp;a&nbsp;user:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$&nbsp;python&nbsp;dbmanager.py&nbsp;-usr&nbsp;test&nbsp;-psw&nbsp;test&nbsp;-rm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Successfully&nbsp;removed&nbsp;user&nbsp;[test]<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Checking&nbsp;credentials:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$&nbsp;python&nbsp;dbmanager.py&nbsp;-usr&nbsp;test&nbsp;-psw&nbsp;test&nbsp;-check<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Credentials&nbsp;you&nbsp;have&nbsp;inserted&nbsp;for&nbsp;user&nbsp;[test]&nbsp;are&nbsp;the&nbsp;correct&nbsp;ones!<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Level&nbsp;of&nbsp;verbosity&nbsp;is&nbsp;regulated&nbsp;through&nbsp;the&nbsp;optional&nbsp;argument&nbsp;of&nbsp;the&nbsp;parser.<br>
+&nbsp;<br>
+..&nbsp;_Git-hub&nbsp;Repository:<br>
+&nbsp;&nbsp;&nbsp;https://github.com/Mint-Afk/EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO-.git</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="hashlib.html">hashlib</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="sqlite3.html">sqlite3</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-check_user"><strong>check_user</strong></a>(user, passw)</dt><dd><tt>Check&nbsp;if&nbsp;credentials&nbsp;are&nbsp;correct.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;user&nbsp;exists&nbsp;the&nbsp;SHA256&nbsp;is&nbsp;computed.&nbsp;Than,&nbsp;if&nbsp;the&nbsp;digest&nbsp;of&nbsp;the<br>
+password&nbsp;provided&nbsp;by&nbsp;the&nbsp;user&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;digest&nbsp;computed&nbsp;as&nbsp;above,<br>
+the&nbsp;user&nbsp;is&nbsp;authenticated&nbsp;and&nbsp;allowed&nbsp;to&nbsp;use&nbsp;functionalities.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user&nbsp;(string):&nbsp;user&nbsp;username<br>
+&nbsp;&nbsp;&nbsp;&nbsp;passw&nbsp;(string):&nbsp;user&nbsp;password</tt></dd></dl>
+ <dl><dt><a name="-new_user"><strong>new_user</strong></a>(user, passw)</dt><dd><tt>Register&nbsp;a&nbsp;new&nbsp;user.<br>
+&nbsp;<br>
+The&nbsp;SHA256,&nbsp;of&nbsp;salt&nbsp;plus&nbsp;password,&nbsp;is&nbsp;computed&nbsp;to&nbsp;obtain&nbsp;the&nbsp;digest.&nbsp;<br>
+Password&nbsp;can&nbsp;so&nbsp;be&nbsp;stored&nbsp;in&nbsp;secure&nbsp;manner&nbsp;in&nbsp;encrypted&nbsp;version.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user&nbsp;(string):&nbsp;user&nbsp;username<br>
+&nbsp;&nbsp;&nbsp;&nbsp;passw&nbsp;(string):&nbsp;user&nbsp;password</tt></dd></dl>
+ <dl><dt><a name="-open_and_create"><strong>open_and_create</strong></a>(database)</dt><dd><tt>Connect&nbsp;to&nbsp;the&nbsp;database&nbsp;or&nbsp;create&nbsp;a&nbsp;new&nbsp;one&nbsp;if&nbsp;it&nbsp;doesn't&nbsp;exist.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;database&nbsp;(string):&nbsp;path&nbsp;to&nbsp;database</tt></dd></dl>
+ <dl><dt><a name="-parse_args"><strong>parse_args</strong></a>()</dt><dd><tt>Command&nbsp;line&nbsp;option&nbsp;and&nbsp;argument&nbsp;parsing.<br>
+&nbsp;<br>
+The&nbsp;function&nbsp;use&nbsp;argparse&nbsp;to&nbsp;write&nbsp;user-friendly&nbsp;command-line&nbsp;interfaces.&nbsp;<br>
+The&nbsp;argparse&nbsp;module&nbsp;also&nbsp;automatically&nbsp;generates&nbsp;help&nbsp;and&nbsp;usage&nbsp;messages&nbsp;<br>
+and&nbsp;issues&nbsp;errors&nbsp;when&nbsp;users&nbsp;give&nbsp;the&nbsp;program&nbsp;invalid&nbsp;arguments.&nbsp;<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;place&nbsp;(positional):&nbsp;the&nbsp;state&nbsp;or&nbsp;capital&nbsp;selected&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;["-usr"](required):&nbsp;Insert&nbsp;username&nbsp;of&nbsp;the&nbsp;account&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;["-psw"](required):&nbsp;Insert&nbsp;password&nbsp;of&nbsp;the&nbsp;account&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;["-add"]:&nbsp;add&nbsp;a&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;["-rm"]:&nbsp;remove&nbsp;a&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;["-check"]:&nbsp;check&nbsp;a&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;["--version"]&nbsp;(optional):&nbsp;show&nbsp;infos&nbsp;about&nbsp;the&nbsp;actual&nbsp;version&nbsp;of&nbsp;the&nbsp;project<br>
+&nbsp;<br>
+Returns:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;argparse.Namespace:&nbsp;user&nbsp;shell&nbsp;inputs&nbsp;arguments</tt></dd></dl>
+ <dl><dt><a name="-remove_user"><strong>remove_user</strong></a>(user, passw)</dt><dd><tt>Remove&nbsp;an&nbsp;old&nbsp;user.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user&nbsp;(string):&nbsp;user&nbsp;username<br>
+&nbsp;&nbsp;&nbsp;&nbsp;passw&nbsp;(string):&nbsp;user&nbsp;password</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>conn</strong> = None<br>
+<strong>cursor</strong> = None</td></tr></table>
+</body></html>
