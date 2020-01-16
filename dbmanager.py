@@ -119,7 +119,7 @@ def parse_args():
     parser.add_argument(
         "--version",
         action="version",
-        version="%(prog)s v1.0, Dec 2019 by MFGAsoftware©")
+        version="%(prog)s v1.0, Dec 2019 by MFGAsoftware")
 
     arguments = parser.parse_args()
     return arguments
@@ -207,8 +207,7 @@ if __name__ == "__main__":
     ''' Execute code only if the file was run directly.'''
     open_and_create('database.db')
     args = parse_args()
-    if args.add and args.rm or args.add and args.check or
-    args.rm and args.check:
+    if args.add and args.rm or args.add and args.check or args.rm and args.check:
         print("ATTENTION!! Can't execute both operations at the same time!")
         quit()
     if args.add:
