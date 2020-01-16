@@ -11,7 +11,7 @@ User input:
     $ python3 -m unittest -v -b test/test.py
 
 Give back:
-    
+
     test_empty_data (test.test.TestMain) ... ok
     test_right_data (test.test.TestMain) ... ok
     test_wrong_data (test.test.TestMain) ... ok
