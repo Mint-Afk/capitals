@@ -1,168 +1,143 @@
-# European Geographic Champion 2020 :earth_africa:
+﻿# EGC-2K20 :earth_africa: | European Geography Champion 2020 
 
-The main goal of our project is to return to the user a country or a capital name of European States, given a determined input. 
-The user can choose among a huge list a European capital or state in order to find its respective state or capital.
+*A lightweight and fast tool to answer any state<->capital connexion, and viceversa. 
+The main goal of our project is to return to the user a country or a capital name of European states through a user-friendly interface, given a determined user input.*
 
-In this repository, you can find a file named ```EGC-2K19.py``` that is the core file of our project. Through a user-friendly command-line interface, it recalls the check_capital function, defined in ```capitals.py```, to check if the given input is a valid name of a European capital city, or state respectively, and return the associated capital or state. The function is gonna calibrate the verbosity of the answers if specified by (-v) argument. 
+---
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-If you run the program, given the user shell input ```$ python parser.py italy -v```, it will generate results like this:
+---
+### Prerequisites 
+You can download all the necessary files to get the app functioning from:
+.. _Git-hub Repository: [github.com/mintafk/EGC-2K20](https://github.com/Mint-Afk/EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO-.git) 
+
+Libraries contains built-in modules that provide access to system functionality as well as modules written in Python that provide standardized solutions for many problems that occur in everyday programming.
+>  **Note:** the project requires the following modules to run: *os, argparse, sqlite3, random, csv, tempfile, hashlib, unittest* and *sys*.
+
+
+Some of them are not included in the Python Standard Library and so you are going to need to download and install them through the command line. 
+The command ```$ pip3 install library_name``` is gonna bring the desired result.
+
+---
+
+The system support a **User Management System** and so, you are going to need a valid username and password to login every time you execute the program.
+
+---
+### Populate the Database
+To setup usernames and passwords, you will need to execute ```dbmanager.py``` from the command line. 
+
+```$ python dbmanager.py -usr test -psw test -add/check/rm```
+
+This will enable you to:
+- **ADD** a new user
+```
+$ python dbmanager.py -usr test -psw test -add
+
+User [test] succesfully added to database!
+```
+- **CHECK** an existing user 
+```
+$ python dbmanager.py -usr test -psw test -check
+
+Credentials for user [test] are the correct ones!
+```
+- **REMOVE** an old user
+```
+$ python dbmanager.py -usr test -psw test -rm
+
+Successfully removed user [test]
+```
+All the users and their passwords are saved in ```database.db``` file in the repository. Passwords are stored as digests, computed with a salt plus hash repetition for improved security.
+
+>  **Note:** database manager can support only one operation at a time. Cannot *add* and *check* or *remove* at the same time.
+
+---
+Once all is ready to go, execute the main file with: 
+
+```$ python EGC-2K20.py Italy -usr test -psw test -v```
+
+it will give you results the following result:
+
 ```The capital of ITALY is ROME```
 
-```args.place``` is passed to the check function.
-The dictionary in list, previously loaded by ```load_csv```, is checked as next step to find a correspondence.
+The user can now choose among any European capital or state in order to find its respective state or capital in a heartbeat.  Using optional parameters he may also:
+- calibrate the verbosity level of the ouput (3 levels);
+- get info's about the version and the developers;
 
-All this effort to say that the capital of Italy is obviously... ROME.
+## Command line parameters 
+As we have just mentioned, some command line parameters are required in order to run the main script.
 
-## How to populate a database
+#### Positional arguments
+- **place**: the state or capital selected by the user, ready to be matched with its correlative. 
+> **Note:** Only one place at a time can be passed and processed. 
 
-To run ```EGC-2K19.py```, the user will need a **username** and a **password**. 
-
-```dbmanager.py``` allows to add and remove users. 
-
-If you want to add a new user, you can use the parameter ```-add```. It requires:
-**-usr**: user username
-**-psw**: user password
-
-```
-$ python dbmanager.py -usr test -psw test -add   User [test] succesfully added to database!
-```
-
-You also have the possibility to remove a user, using the parameter ```-rm```. It requires:
-**-usr**: user username
-**-psw**: user password
+#### Optional & Required arguments
+- **-h, --help:** show the helper and exit.  
+- **-v:, --verbosity** Augment verbosity level. Some modules also include verbosity. There are 3 level of verbosity in this version.   
+- **-usr [required]:** Insert username of the account (requires *-p*).  
+- **-psw [required]:** Insert password of the account.
+- **--version:** show infos about the project.
+ 
+## Running the tests
+In the folder ```city_check/test``` you may find the ```test.py``` module wich is used to make automated tests for this system.
 
 ```
-$ python dbmanager.py -usr test -psw test -rm 
-Successfully removed user [test]
-```
-
-## Data Files 
-
-The user can choose among a list of capitals and states of Europe that is stored in .csv file located in: ```/city_check/data/capital.csv```.
-A dictionary is provided with 
-
-**Valid states and capitals**:
-
-|State                 |Capital         |
-|----------------------|----------------|
-|Aland Islands         |Mariehamn       |
-|Albania               |Tirana          |
-|Andorra               |Andorra la Vella|
-|Armenia               |Yerevan         |
-|Austria               |Vienna          |
-|Azerbaijan            |Baku            |
-|Belarus               |Minsk           |
-|Belgium               |Brussels        |
-|Bosnia and Herzegovina|Sarajevo        |
-|Bulgaria              |Sofia           |
-|Croatia               |Zagreb          |
-|Cyprus                |Nicosia         |
-|Czech Republic        |Prague          |
-|Denmark               |Copenhagen      |
-|Estonia               |Tallinn         |
-|Faroe Islands         |Torshavn        |
-|Finland               |Helsinki        |
-|France                |Paris           |
-|Georgia               |Tbilisi         |
-|Germany               |Berlin          |
-|Gibraltar             |Gibraltar       |
-|Greece                |Athens          |
-|Guernsey              |Saint Peter Port|
-|Hungary               |Budapest        |
-|Iceland               |Reykjavik       |
-|Ireland               |Dublin          |
-|Isle of Man           |Douglas         |
-|Italy                 |Rome            |
-|Jersey                |Saint Helier    |
-|Kosovo                |Pristina        |
-|Latvia                |Riga            |
-|Liechtenstein         |Vaduz           |
-|Lithuania             |Vilnius         |
-|Luxembourg            |Luxembourg      |
-|Macedonia             |Skopje          |
-|Malta                 |Valletta        |
-|Moldova               |Chisinau        |
-|Monaco                |Monaco          |
-|Montenegro            |Podgorica       |
-|Netherlands           |Amsterdam       |
-|Northern Cyprus       |North Nicosia   |
-|Norway                |Oslo            |
-|Poland                |Warsaw          |
-|Portugal              |Lisbon          |
-|Romania               |Bucharest       |
-|Russia                |Moscow          |
-|San Marino            |San Marino      |
-|Serbia                |Belgrade        |
-|Slovakia              |Bratislava      |
-|Slovenia              |Ljubljana       |
-|Spain                 |Madrid          |
-|Svalbard              |Longyearbyen    |
-|Sweden                |Stockholm       |
-|Switzerland           |Bern            |
-|Turkey                |Ankara          |
-|Ukraine               |Kyiv            |
-|United Kingdom        |London          |
-|Vatican City          |Vatican City    |
-
-## Command line parameters
-
-Some command line parameters are needed in order to run our executable file.
-The arguments required are:
-
-### check_capital parameters
-
-**list** (dict): list containing the state/capital dictionary
-
-**args (argparse.Namespace): user sheell inputs arguments
-
-**place**: user state/capital input
-
-**verbosity**: user desired output verbosity
-
-### Parse_args() parameters 
-
-**place** (positional): the state or capital selected by the user
-
-**-usr** (required): Insert username of the account
-
-**-psw** (required): Insert password of the account
-
-**-add**: add a user
-
-**-rm**: remove a user
-
-**-check**: check a user
-
-**--version** (optional): show infos about the actual version of the project
-
-**verbosity** (optional): level of verbosity chosen by the user [0 - 1 - 2]
-
-## Testing
-
-Test on parts of the code are provided here: ```test/test.py/```. 
-
-To run the three TestMain Class tests you can use: ```$ python3 -m unittest -v -b test/test.py```:
-
-```
+MacBook-Pro-di-Matteo-4:EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO matteocarniel$ python3 -m unittest -v -b
 test_empty_data (test.test.TestMain) ... ok
+test_right_data (test.test.TestMain) ... ok
+test_wrong_data (test.test.TestMain) ... ok
 
-    test_right_data (test.test.TestMain) ... ok
-
-    test_wrong_data (test.test.TestMain) ... ok
-
-
-
-    ----------------------------------------------------------------------
-
-    Ran 3 tests in 0.004s
-
-
-
-    OK
+----------------------------------------------------------------------
+Ran 3 tests in 0.006s
+OK
 ```
+To run those  tests use:
 
-## License
+```python3 -m unittest -v -b stock_package/tests/test_MODULENAME.py```:
 
-Apache License 2.0
+>  **Note:** Pay attention to call the tests from the main folder to work correctly.
+
+### Break down into end to end tests
+Through the  ```setUp``` function, we are going to create 3 temporary files using the ```tempfile``` library. The tests are done to check the correct functioning of the function ```load_csv``` in the ```city_check/scripts/capitals``` module. 
+
+In particular:
+- **SMOKE TEST** 
+- **EMPTY FILE TEST**
+- **WRONG FORMAT TEST**
+
+The function ```load_csv``` handles all the exceptions correctly.
 
 
+## Data  
+States and capitals datas are stored in *.csv* files located in: ```city_check/data/capital.csv```.  Till now there are about 58 supported country.
+
+> **Note:** More places will be reached in the next release i.e. worldwide 
+
+
+## Documentation
+Documentation can be found in ```documentation``` folder and provides docstrings full of info's about the functions you can find in the various modules. 
+ 
+**DOCSTRINGS MADE BY: [Google Style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html).**
+
+## Contributing
+Everyone is welcome to contribute to this repository, but please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change. 
+
+### Pull Request Process
+1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
+2. Update the README with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.
+3. Increase the version numbers to the new version that this Pull Request would represent. 
+
+## Authors
+- ```MATTEO CARNIEL -> matteo.carniel@student.h-farm.com```
+
+###  Support
+You need help? Get in touch with me.
+
+### Contributors
+Thank you all for the collaboration! 
+- **Giorgia Fanton** 
+- **Francesco Pedrini** 
+
+##  License
+[APACHE 2.0](https://choosealicense.com/licenses/apache-2.0/)
