@@ -34,7 +34,7 @@ def parse_args():
         place (positional): the state or capital selected by the user
         ["-usr"] (required): Insert username of the account
         ["-psw"] (required): Insert password of the account
-        ["-v", "--verbosity"] (optional): level of verbosity [0-1-2]
+        ["-v", "--verbosity"] (optional): level of verbosity [0-1-2-3]
         [--version] (optional): show infos about the project
 
     Returns:

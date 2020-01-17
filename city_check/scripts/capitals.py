@@ -17,7 +17,8 @@ Example:
 
         The capital of ITALY is ROME
 
-    Verbosity level is regulated through the optional argument of the parser.
+    Verbosity level is regulated through the optional argument of the parser,
+    The level goes from 0 (answer only) to 3 (API - country info's)
 
 .. _Git-hub Repository:
    https://github.com/Mint-Afk/EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO-.git
@@ -25,7 +26,10 @@ Example:
 '''
 
 import csv
+from city_check.scripts import apinfo as api
 
+country_url = 'https://restcountries.eu/rest/v2/name/{}'
+capital_url = 'https://restcountries.eu/rest/v2/capital/{}'
 
 def load_csv(filename):
     '''Read the csv file and return the state/capital dictionary.'''
@@ -59,7 +63,8 @@ def check_capital(list, args):
         command not found : error raised if the user input is wrong/incorrect.
     '''
     if args.place in list:
-        if args.verbosity >= 2:
+        real_url = country_url
+        if args.verbosity == 2:
             print('''
                   args.place is passed to the check function.
                   The dictionary, previously loaded by load_csv,
@@ -69,15 +74,19 @@ def check_capital(list, args):
                             the capital of {} is obviously... {}
                   '''.format(args.place,
                              list[args.place]))
-        elif args.verbosity >= 1:
+        elif args.verbosity == 1:
             print("The capital of {} is {}".format(args.place,
                                                    list[args.place]))
+        elif args.verbosity >= 3:
+            info = api.get_info(real_url, args.place)
+            print(info)
         else:
             print(list[args.place])
     else:
+        real_url = capital_url
         for state, capital in list.items():
             if capital == args.place:
-                if args.verbosity >= 2:
+                if args.verbosity == 2:
                     print('''
                           args.place is passed to the check function.
                           The dictionary, previously loaded by load_csv,
@@ -86,9 +95,12 @@ def check_capital(list, args):
                           All that effort to say that:
                           the state whose capital is {} is {}"
                           '''.format(args.place, state))
-                elif args.verbosity >= 1:
+                elif args.verbosity == 1:
                     print("The state whose capital is {} is {}"
                           .format(args.place, state))
+                elif args.verbosity >= 3:
+                    info = api.get_info(real_url, args.place)
+                    print(info)
                 else:
                     print(state)
     if args.place not in list and args.place not in list.values():
