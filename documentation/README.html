@@ -88,9 +88,9 @@ Successfully removed user [test]
 <p><code>$ python EGC-2K20.py Italy -usr test -psw test -v</code></p>
 <p>it will give you results the following result:</p>
 <p><code>The capital of ITALY is ROME</code></p>
-<p>The user can now choose among any European capital or state in order to find its respective state or capital in a heartbeat.  Using optional parameters he may also:</p>
+<p>The user can now choose among any European capital or state in order to find its respective state or capital in a heartbeat. Using optional parameters he may also:</p>
 <ul>
-<li>calibrate the verbosity level of the ouput (3 levels);</li>
+<li>calibrate the verbosity level of the ouput (4 levels);</li>
 <li>get info’s about the version and the developers;</li>
 </ul>
 <h2 id="command-line-parameters">Command line parameters</h2>
@@ -105,24 +105,26 @@ Successfully removed user [test]
 <h4 id="optional--required-arguments">Optional &amp; Required arguments</h4>
 <ul>
 <li><strong>-h, --help:</strong> show the helper and exit.</li>
-<li><strong>-v:, --verbosity</strong> Augment verbosity level. Some modules also include verbosity. There are 3 level of verbosity in this version.</li>
+<li><strong>-v:, --verbosity</strong> Augment verbosity level. There are 4 level of verbosity.</li>
 <li><strong>-usr [required]:</strong> Insert username of the account (requires <em>-p</em>).</li>
 <li><strong>-psw [required]:</strong> Insert password of the account.</li>
 <li><strong>–version:</strong> show infos about the project.</li>
 </ul>
+<blockquote>
+<p><strong>Note:</strong> <em>verbosity</em> level goes from 0 to 3. Where 0 will give back only the answer, gradually increment the lengthiness till the 3rd level, at max verbosity the app will give you back all the info’s about the country fetched from <a href="http://restcountries.eu">restcountries.eu</a> API’s.</p>
+</blockquote>
 <h2 id="running-the-tests">Running the tests</h2>
 <p>In the folder <code>city_check/test</code> you may find the <code>test.py</code> module wich is used to make automated tests for this system.</p>
-<pre><code>MacBook-Pro-di-Matteo-4:EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO matteocarniel$ python3 -m unittest -v -b
-test_empty_data (test.test.TestMain) ... ok
+<pre><code>test_empty_data (test.test.TestMain) ... ok
 test_right_data (test.test.TestMain) ... ok
 test_wrong_data (test.test.TestMain) ... ok
 
 ----------------------------------------------------------------------
-Ran 3 tests in 0.006s
+Ran 3 tests in 0.004s
 OK
 </code></pre>
 <p>To run those  tests use:</p>
-<p><code>python3 -m unittest -v -b stock_package/tests/test_MODULENAME.py</code>:</p>
+<p><code>$ python3 -m unittest -v -b test/test.py</code>:</p>
 <blockquote>
 <p><strong>Note:</strong> Pay attention to call the tests from the main folder to work correctly.</p>
 </blockquote>

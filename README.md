@@ -1,4 +1,5 @@
-﻿# EGC-2K20 :earth_africa: | European Geography Champion 2020 
+﻿
+# EGC-2K20 :earth_africa: | European Geography Champion 2020 
 
 *A lightweight and fast tool to answer any state<->capital connexion, and viceversa. 
 The main goal of our project is to return to the user a country or a capital name of European states through a user-friendly interface, given a determined user input.*
@@ -61,8 +62,8 @@ it will give you results the following result:
 
 ```The capital of ITALY is ROME```
 
-The user can now choose among any European capital or state in order to find its respective state or capital in a heartbeat.  Using optional parameters he may also:
-- calibrate the verbosity level of the ouput (3 levels);
+The user can now choose among any European capital or state in order to find its respective state or capital in a heartbeat. Using optional parameters he may also:
+- calibrate the verbosity level of the ouput (4 levels);
 - get info's about the version and the developers;
 
 ## Command line parameters 
@@ -74,27 +75,28 @@ As we have just mentioned, some command line parameters are required in order to
 
 #### Optional & Required arguments
 - **-h, --help:** show the helper and exit.  
-- **-v:, --verbosity** Augment verbosity level. Some modules also include verbosity. There are 3 level of verbosity in this version.   
+- **-v:, --verbosity** Augment verbosity level. There are 4 level of verbosity.   
 - **-usr [required]:** Insert username of the account (requires *-p*).  
 - **-psw [required]:** Insert password of the account.
 - **--version:** show infos about the project.
+
+>  **Note:** *verbosity* level goes from 0 to 3. Where 0 will give back only the answer, gradually increment the lengthiness till the 3rd level, at max verbosity the app will give you back all the info's about the country fetched from restcountries.eu API's.
  
 ## Running the tests
 In the folder ```city_check/test``` you may find the ```test.py``` module wich is used to make automated tests for this system.
 
 ```
-MacBook-Pro-di-Matteo-4:EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO matteocarniel$ python3 -m unittest -v -b
 test_empty_data (test.test.TestMain) ... ok
 test_right_data (test.test.TestMain) ... ok
 test_wrong_data (test.test.TestMain) ... ok
 
 ----------------------------------------------------------------------
-Ran 3 tests in 0.006s
+Ran 3 tests in 0.004s
 OK
 ```
 To run those  tests use:
 
-```python3 -m unittest -v -b stock_package/tests/test_MODULENAME.py```:
+```$ python3 -m unittest -v -b test/test.py```:
 
 >  **Note:** Pay attention to call the tests from the main folder to work correctly.
 
