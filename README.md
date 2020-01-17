@@ -14,11 +14,11 @@ You can download all the necessary files to get the app functioning from:
 .. _Git-hub Repository: [github.com/mintafk/EGC-2K20](https://github.com/Mint-Afk/EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO-.git) 
 
 Libraries contains built-in modules that provide access to system functionality as well as modules written in Python that provide standardized solutions for many problems that occur in everyday programming.
->  **Note:** the project requires the following modules to run: *os, argparse, sqlite3, random, csv, tempfile, hashlib, unittest* and *sys*.
+>  **Note:** the project requires the following modules to run: *os, argparse, sqlite3, random, csv, tempfile, hashlib, unittest, request, json* and *sys*.
 
 
 Some of them are not included in the Python Standard Library and so you are going to need to download and install them through the command line. 
-The command ```$ pip3 install library_name``` is gonna bring the desired result.
+The command ```$ pip3 install library_name``` is gonna bring the desired result in most of the cases.
 
 ---
 
