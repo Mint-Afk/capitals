@@ -1,4 +1,4 @@
-﻿
+
 # EGC-2K20 :earth_africa: | European Geography Champion 2020 
 
 *A lightweight and fast tool to answer any state<->capital connexion, and viceversa. 
@@ -18,7 +18,7 @@ Libraries contains built-in modules that provide access to system functionality 
 
 
 Some of them are not included in the Python Standard Library and so you are going to need to download and install them through the command line. 
-The command ```$ pip3 install library_name``` is gonna bring the desired result in most of the cases.
+The command ```$ pip3 install library_name``` is gonna bring the desired result in most cases.
 
 ---
 

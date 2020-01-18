@@ -95,3 +95,4 @@ def check_capital(list, args):
         print('''
               Sorry, but {} does not seem to be a valid state or capital.
               '''. format(args.place))
+
