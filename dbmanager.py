@@ -74,15 +74,15 @@ def parse_args():
 
     Arguments:
         place (positional): the state or capital selected by the user
-        ["-usr"](required): Insert username of the account
-        ["-psw"](required): Insert password of the account
+        ["-usr"] (required): Insert username of the account
+        ["-psw"] (required): Insert password of the account
         ["-add"]: add a user
         ["-rm"]: remove a user
         ["-check"]: check a user
         ["--version"] (optional): show infos about the project
 
     Returns:
-        argparse.Namespace: user shell inputs arguments
+        argparse (namespace): user shell inputs arguments
     '''
 
     parser = ArgumentParser(

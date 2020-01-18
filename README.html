@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#egc-2k20-earth_africa--european-geography-champion-2020">EGC-2K20 🌍 | European Geography Champion 2020</a>
+<ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#command-line-parameters">Command line parameters</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#running-the-tests">Running the tests</a></li>
+<li><a href="#data">Data</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="egc-2k20-earth_africa--european-geography-champion-2020">EGC-2K20 🌍 | European Geography Champion 2020</h1>
+<p><em>A lightweight and fast tool to answer any state&lt;-&gt;capital connexion, and viceversa.<br>
+The main goal of our project is to return to the user a country or a capital name of European states through a user-friendly interface, given a determined user input.</em></p>
+<hr>
+<h2 id="getting-started">Getting Started</h2>
+<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</p>
+<hr>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>You can download all the necessary files to get the app functioning from:<br>
+… _Git-hub Repository: <a href="https://github.com/Mint-Afk/EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO-.git">github.com/mintafk/EGC-2K20</a></p>
+<p>Libraries contains built-in modules that provide access to system functionality as well as modules written in Python that provide standardized solutions for many problems that occur in everyday programming.</p>
+<blockquote>
+<p><strong>Note:</strong> the project requires the following modules to run: <em>os, argparse, sqlite3, random, csv, tempfile, hashlib, unittest, request, json</em> and <em>sys</em>.</p>
+</blockquote>
+<p>Some of them are not included in the Python Standard Library and so you are going to need to download and install them through the command line.<br>
+The command <code>$ pip3 install library_name</code> is gonna bring the desired result in most of the cases.</p>
+<hr>
+<p>The system support a <strong>User Management System</strong> and so, you are going to need a valid username and password to login every time you execute the program.</p>
+<hr>
+<h3 id="populate-the-database">Populate the Database</h3>
+<p>To setup usernames and passwords, you will need to execute <code>dbmanager.py</code> from the command line.</p>
+<p><code>$ python dbmanager.py -usr test -psw test -add/check/rm</code></p>
+<p>This will enable you to:</p>
+<ul>
+<li><strong>ADD</strong> a new user</li>
+</ul>
+<pre><code>$ python dbmanager.py -usr test -psw test -add
+
+User [test] succesfully added to database!
+</code></pre>
+<ul>
+<li><strong>CHECK</strong> an existing user</li>
+</ul>
+<pre><code>$ python dbmanager.py -usr test -psw test -check
+
+Credentials for user [test] are the correct ones!
+</code></pre>
+<ul>
+<li><strong>REMOVE</strong> an old user</li>
+</ul>
+<pre><code>$ python dbmanager.py -usr test -psw test -rm
+
+Successfully removed user [test]
+</code></pre>
+<p>All the users and their passwords are saved in <code>database.db</code> file in the repository. Passwords are stored as digests, computed with a salt plus hash repetition for improved security.</p>
+<blockquote>
+<p><strong>Note:</strong> database manager can support only one operation at a time. Cannot <em>add</em> and <em>check</em> or <em>remove</em> at the same time.</p>
+</blockquote>
+<hr>
+<p>Once all is ready to go, execute the main file with:</p>
+<p><code>$ python EGC-2K20.py Italy -usr test -psw test -v</code></p>
+<p>it will give you results the following result:</p>
+<p><code>The capital of ITALY is ROME</code></p>
+<p>The user can now choose among any European capital or state in order to find its respective state or capital in a heartbeat. Using optional parameters he may also:</p>
+<ul>
+<li>calibrate the verbosity level of the ouput (4 levels);</li>
+<li>get info’s about the version and the developers;</li>
+</ul>
+<h2 id="command-line-parameters">Command line parameters</h2>
+<p>As we have just mentioned, some command line parameters are required in order to run the main script.</p>
+<h4 id="positional-arguments">Positional arguments</h4>
+<ul>
+<li><strong>place</strong>: the state or capital selected by the user, ready to be matched with its correlative.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Only one place at a time can be passed and processed.</p>
+</blockquote>
+<h4 id="optional--required-arguments">Optional &amp; Required arguments</h4>
+<ul>
+<li><strong>-h, --help:</strong> show the helper and exit.</li>
+<li><strong>-v:, --verbosity</strong> Augment verbosity level. There are 4 level of verbosity.</li>
+<li><strong>-usr [required]:</strong> Insert username of the account (requires <em>-p</em>).</li>
+<li><strong>-psw [required]:</strong> Insert password of the account.</li>
+<li><strong>–version:</strong> show infos about the project.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> <em>verbosity</em> level goes from 0 to 3. Where 0 will give back only the answer, gradually increment the lengthiness till the 3rd level, at max verbosity the app will give you back all the info’s about the country fetched from <a href="http://restcountries.eu">restcountries.eu</a> API’s.</p>
+</blockquote>
+<h2 id="running-the-tests">Running the tests</h2>
+<p>In the folder <code>city_check/test</code> you may find the <code>test.py</code> module wich is used to make automated tests for this system.</p>
+<pre><code>test_empty_data (test.test.TestMain) ... ok
+test_right_data (test.test.TestMain) ... ok
+test_wrong_data (test.test.TestMain) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+OK
+</code></pre>
+<p>To run those  tests use:</p>
+<p><code>$ python3 -m unittest -v -b test/test.py</code>:</p>
+<blockquote>
+<p><strong>Note:</strong> Pay attention to call the tests from the main folder to work correctly.</p>
+</blockquote>
+<h3 id="break-down-into-end-to-end-tests">Break down into end to end tests</h3>
+<p>Through the  <code>setUp</code> function, we are going to create 3 temporary files using the <code>tempfile</code> library. The tests are done to check the correct functioning of the function <code>load_csv</code> in the <code>city_check/scripts/capitals</code> module.</p>
+<p>In particular:</p>
+<ul>
+<li><strong>SMOKE TEST</strong></li>
+<li><strong>EMPTY FILE TEST</strong></li>
+<li><strong>WRONG FORMAT TEST</strong></li>
+</ul>
+<p>The function <code>load_csv</code> handles all the exceptions correctly.</p>
+<h2 id="data">Data</h2>
+<p>States and capitals datas are stored in <em>.csv</em> files located in: <code>city_check/data/capital.csv</code>.  Till now there are about 58 supported country.</p>
+<blockquote>
+<p><strong>Note:</strong> More places will be reached in the next release i.e. worldwide</p>
+</blockquote>
+<h2 id="documentation">Documentation</h2>
+<p>Documentation can be found in <code>docs</code> folder and provides comments and explanations about the modules and functions that you can find in the various modules. Main page file is located in <code>_build/html/index.html</code>.</p>
+<p>To read them with your browser, from the main folder use <code>$ open docs/_build/html/index.html</code>.</p>
+<blockquote>
+<p><strong>Documentation made with: <a href="http://www.sphinx-doc.org/en/master/">Sphinx</a>.</strong></p>
+<blockquote>
+<p><strong>Docstrings : <a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Google Style</a>.</strong></p>
+</blockquote>
+</blockquote>
+<h2 id="contributing">Contributing</h2>
+<p>Everyone is welcome to contribute to this repository, but please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.</p>
+<h3 id="pull-request-process">Pull Request Process</h3>
+<ol>
+<li>Ensure any install or build dependencies are removed before the end of the layer when doing a build.</li>
+<li>Update the README with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.</li>
+<li>Increase the version numbers to the new version that this Pull Request would represent.</li>
+</ol>
+<h2 id="authors">Authors</h2>
+<ul>
+<li><code>MATTEO CARNIEL -&gt; matteo.carniel@student.h-farm.com</code></li>
+</ul>
+<h3 id="support">Support</h3>
+<p>You need help? Get in touch with me.</p>
+<h3 id="contributors">Contributors</h3>
+<p>Thank you all for the collaboration!</p>
+<ul>
+<li><strong>Giorgia Fanton</strong></li>
+<li><strong>Francesco Pedrini</strong></li>
+</ul>
+<h2 id="license">License</h2>
+<p><a href="https://choosealicense.com/licenses/apache-2.0/">APACHE 2.0</a></p>
+
+    </div>
+  </div>
+</body>
+
+</html>

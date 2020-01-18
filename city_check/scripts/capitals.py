@@ -2,8 +2,10 @@
 '''Capital module is core to the whole functioning of the program.
 
 This module contains two main functions:
+
     - load_csv: utilised to open and analyse csv file datas.
     - check_capitals: returns the correspondence asked.
+
 Check function called by the main_app taking argument place of the parser,
 is gonna check the list previously loaded by the load_csv function to answer.
 
@@ -31,6 +33,7 @@ from city_check.scripts import apinfo as api
 country_url = 'https://restcountries.eu/rest/v2/name/{}'
 capital_url = 'https://restcountries.eu/rest/v2/capital/{}'
 
+
 def load_csv(filename):
     '''Read the csv file and return the state/capital dictionary.'''
     list_of_capitals = {}
@@ -47,6 +50,7 @@ def check_capital(list, args):
     - 1st Part: check if the input is a valid state in the capitals list,
                 and gives in return the capital associated.
     - 2nd Part: check exactly the reverse of the first one.
+
     The function is gonna calibrate the verbosity if specified by (-v) level.
 
     Parameters:
@@ -56,7 +60,7 @@ def check_capital(list, args):
         *verbosity: user desired output verbosity
 
     Returns:
-        string: returning strings with variable verbosity
+        answer (string): returning strings with variable verbosity
 
     Raises:
         -bash: [Non-European State/Capital]:

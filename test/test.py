@@ -25,6 +25,7 @@ Give back:
    https://github.com/Mint-Afk/EUROPEAN-GEOGRAPHY-CHAMPION-2K20--PRO-.git
 
 '''
+
 import unittest
 from city_check.scripts import capitals
 import os
